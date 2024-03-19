@@ -16,12 +16,12 @@ class StatefulServiceTest {
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
 
         // 쓰레드A에서 A 사용자가 1만원 주문
-        statefulService1.order("userA", 10000);
+        int userAPrice = statefulService1.order("userA", 10000);
         // 쓰레드B에서 B 사용자가 2만원 주문
-        statefulService2.order("userB", 20000);
+        int userBPrice = statefulService2.order("userB", 20000);
 
-        // 쓰레드A에서 A 사용자가 주문 금액을 조회한다.
-        assertThat(statefulService1.getPrice()).isEqualTo(20000);
+        assertThat(userAPrice).isEqualTo(10000);
+        assertThat(userBPrice).isEqualTo(20000);
     }
 
     @Configuration
