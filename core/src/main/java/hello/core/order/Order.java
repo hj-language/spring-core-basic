@@ -7,6 +7,10 @@ public class Order {
     private Integer discountPrice;
     private Integer totalPrice;
 
+    public Integer getDiscountPrice() {
+        return discountPrice;
+    }
+
     public Order(Long memberId, String itemName, Integer itemPrice, Integer discountPrice) {
         this.memberId = memberId;
         this.itemName = itemName;
