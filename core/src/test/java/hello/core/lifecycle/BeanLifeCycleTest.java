@@ -11,6 +11,7 @@ public class BeanLifeCycleTest {
     public void lifeCycleTest() {
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
         NetworkClient client = ac.getBean(NetworkClient.class);
+        System.out.println("Before Closing");
         ac.close(); // ApplicationContext는 제공하지 않는 함수. 따라서 AnnotationConfigApplicationContext 또는 ConfigurableApplicationContext 사용
     }
 
